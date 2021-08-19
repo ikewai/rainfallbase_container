@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM ubuntu
 
 RUN apt update
 
@@ -9,6 +9,7 @@ RUN apt install git python3 python3-pip -y
 RUN pip3 install agavepy tiffile
 
 # OS dependencies for R packages
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt install -y r-base libxml2-dev libssl-dev curl libcurl4-openssl-dev
 # for R, RNRCS, openssl, RCurl, RCurl respectively.
 
